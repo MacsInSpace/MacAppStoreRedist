@@ -27,7 +27,7 @@ if [ $MINOR = "6" ]
       echo $SubTitle >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $PKG >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $ItemID >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-        
+
       let itemNumber=itemNumber+1 
       ln $Cache/$ItemID/$PKG ~/Desktop/"$Title.$BundleVer.pkg"
     done
@@ -59,12 +59,7 @@ else
       echo $SubTitle >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $PKG >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $ItemID >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-  
-        if [ "$BundleID" = "" ]
-          then
-          break
-        fi
-        
+
       let itemNumber=itemNumber+1 
       ln $Cache/$ItemID/$PKG ~/Desktop/"$Title.$BundleVer.pkg"
     done
