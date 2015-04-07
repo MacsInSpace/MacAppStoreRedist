@@ -11,7 +11,8 @@ if [ $MINOR = "6" ]
     while [ $itemNumber -lt 100 ]; do
 
       BundleID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-id" $Manifest`
-     Title=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:title" $Manifest`
+      Title=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:title" $Manifest`
+      SubTitle=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:subtitle" $Manifest`
       PKG=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:assets:0:name" $Manifest`
       ItemID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:item-id" $Manifest`
       BundleVer=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-version" $Manifest`
@@ -19,6 +20,7 @@ if [ $MINOR = "6" ]
       echo $BundleID > /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $BundleVer >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $Title >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $SubTitle >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $PKG >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $ItemID >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
   
@@ -42,7 +44,8 @@ else
     while [ $itemNumber -lt 100 ]; do
 
       BundleID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-id" $Manifest`
-     Title=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:title" $Manifest`
+      Title=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:title" $Manifest`
+      SubTitle=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:subtitle" $Manifest`
       PKG=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:assets:0:name" $Manifest`
       ItemID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:item-id" $Manifest`
       BundleVer=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-version" $Manifest`
@@ -50,6 +53,7 @@ else
       echo $BundleID > /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $BundleVer >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $Title >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $SubTitle >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $PKG >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $ItemID >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
   
