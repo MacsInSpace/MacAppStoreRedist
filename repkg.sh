@@ -11,6 +11,10 @@ if [ $MINOR = "6" ]
     while [ $itemNumber -lt 100 ]; do
 
       BundleID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-id" $Manifest`
+        if [ "$BundleID" = "" ]
+          then
+          break
+        fi
       Title=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:title" $Manifest`
       SubTitle=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:subtitle" $Manifest`
       PKG=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:assets:0:name" $Manifest`
@@ -23,11 +27,6 @@ if [ $MINOR = "6" ]
       echo $SubTitle >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $PKG >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $ItemID >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-  
-        if [ "$BundleID" = "" ]
-          then
-          break
-        fi
         
       let itemNumber=itemNumber+1 
       ln $Cache/$ItemID/$PKG ~/Desktop/"$Title.$BundleVer.pkg"
@@ -44,6 +43,10 @@ else
     while [ $itemNumber -lt 100 ]; do
 
       BundleID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-id" $Manifest`
+        if [ "$BundleID" = "" ]
+          then
+          break
+        fi
       Title=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:title" $Manifest`
       SubTitle=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:subtitle" $Manifest`
       PKG=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:assets:0:name" $Manifest`
