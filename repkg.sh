@@ -3,7 +3,7 @@ MINOR=`sw_vers -productVersion | cut -d "." -f 2`
 if [ $MINOR = "6" ]
   then
   #10.6
-  User=`whoami`
+  User=`logname`
   Manifest="/Users/$User/Library/Application Support/AppStore/manifest.plist"
   Cache="/Users/$User/Library/Application Support/AppStore"
   mkdir /tmp/appstorerepkg
