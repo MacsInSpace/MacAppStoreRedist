@@ -10,6 +10,8 @@ I'd like to eventually have it wait until the size of the pkg is correct (downlo
 It creates and saves to "/tmp/appstorerepkg" for now to be worked on so will be deleted upon reboot. 
 No need for sudo.
 
+![Screenshot]\(http://i.imgur.com/DgxvpQk.png) 
+
 References:
 
 https://derflounder.wordpress.com/2013/08/22/downloading-apples-server-app-installer-package/
