@@ -15,6 +15,12 @@ References:
 https://derflounder.wordpress.com/2013/08/22/downloading-apples-server-app-installer-package/
 https://jamfnation.jamfsoftware.com/discussion.html?id=5591
 
+May need to add this to the end of the script once filesize = 100% downloaded:
+pkgutil --expand mzm.exgoawfi.pkg appstore.pkg 
+pkgutil --flatten appstore.pkg/whatever.pkg whatever.pkg 
+ref:https://jamfnation.jamfsoftware.com/discussion.html?id=5591
+
+Also:
 https://groups.google.com/forum/#!topic/munki-dev/XvrAXe7J5oE
 https://groups.google.com/forum/#!msg/munki-dev/XvrAXe7J5oE/vm4s3Xd0Qw4J
 https://groups.google.com/forum/#!searchin/macenterprise/appstore/macenterprise/Vs3sAalXNzI/mIUN-GtJMc8J
