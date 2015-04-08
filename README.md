@@ -1,5 +1,5 @@
 # MacAppStoreRedist
-Script to parse the Mac App Store Manifest.plist and hard link and rename any current downloads from the Mac App Store for redist.
+Script to parse the Mac App Store Manifest.plist and hard link and rename any current downloads from the Mac App Store for redistribution. Maybe later for Munki or Casper import.
 
 This shell script searches for the Mac App Store folder and creates hard links to any pkg and also creates a matching text file with details of the pkg.
 
