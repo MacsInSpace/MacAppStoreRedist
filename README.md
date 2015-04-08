@@ -9,3 +9,14 @@ I'd like to eventually have it wait until the size of the pkg is correct (downlo
 
 It creates and saves to "/tmp/appstorerepkg" for now to be worked on so will be deleted upon reboot. 
 No need for sudo.
+
+References:
+
+https://derflounder.wordpress.com/2013/08/22/downloading-apples-server-app-installer-package/
+https://jamfnation.jamfsoftware.com/discussion.html?id=5591
+
+https://groups.google.com/forum/#!topic/munki-dev/XvrAXe7J5oE
+https://groups.google.com/forum/#!msg/munki-dev/XvrAXe7J5oE/vm4s3Xd0Qw4J
+https://groups.google.com/forum/#!searchin/macenterprise/appstore/macenterprise/Vs3sAalXNzI/mIUN-GtJMc8J
+https://groups.google.com/forum/#!searchin/macenterprise/appstore/macenterprise/nbL6HrMRG-0/m9pzYYxYb1UJ
+https://groups.google.com/forum/#!searchin/macenterprise/appstore/macenterprise/Y9cej17S_ag/mFqLWni33JYJ
