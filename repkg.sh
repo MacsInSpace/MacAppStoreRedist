@@ -21,16 +21,19 @@ if [ $MINOR = "6" ]
       PKG=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:assets:0:name" "$Manifest"`
       Size=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:assets:0:size" "$Manifest"`
       ItemID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:item-id" "$Manifest"`
-
+         if [ "$SubTitle" = "Apple" ]
+          then
       echo $BundleID > /tmp/appstorerepkg/$BundleID.txt
       echo $Title >> /tmp/appstorerepkg/$BundleID.txt
       echo $SubTitle >> /tmp/appstorerepkg/$BundleID.txt
       echo $PKG >> /tmp/appstorerepkg/$BundleID.txt
       echo $Size >> /tmp/appstorerepkg/$BundleID.txt
       echo $ItemID >> /tmp/appstorerepkg/$BundleID.txt
-
-      let itemNumber=itemNumber+1 
       ln "$Cache/$ItemID/$PKG" /tmp/appstorerepkg/$BundleID.pkg
+        else
+          echo "$Title is not an Apple pkg so will not redistribute"
+        fi
+      let itemNumber=itemNumber+1 
       
     done
 
@@ -55,7 +58,8 @@ else
       Size=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:assets:0:size" $Manifest`
       ItemID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:item-id" $Manifest`
       BundleVer=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-version" $Manifest`
-
+        if [ "$SubTitle" = "Apple" ]
+          then
       echo $BundleID > /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $BundleVer >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $Title >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
@@ -63,9 +67,11 @@ else
       echo $PKG >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $Size >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
       echo $ItemID >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-
-      let itemNumber=itemNumber+1 
       ln $Cache/$ItemID/$PKG /tmp/appstorerepkg/$BundleID.$BundleVer.pkg
+        else
+          echo "$Title is not an Apple pkg so will not redistribute"
+        fi
+      let itemNumber=itemNumber+1 
     done
 
 fi
