@@ -7,6 +7,7 @@ if [ $MINOR = "6" ]
   Manifest="/Users/$User/Library/Application Support/AppStore/manifest.plist"
   Cache="/Users/$User/Library/Application Support/AppStore"
   mkdir /tmp/appstorerepkg
+  open /tmp/appstorerepkg
   itemNumber=0
 
     while [ $itemNumber -lt 100 ]; do
@@ -43,6 +44,8 @@ else
   Manifest=`find /var/folders -name manifest.plist 2>/dev/null | grep "/C/com.apple.appstore"`
   Cache=`echo "${Manifest%/*}"/`
   mkdir /tmp/appstorerepkg
+  open /tmp/appstorerepkg
+
   itemNumber=0
 
     while [ $itemNumber -lt 100 ]; do
