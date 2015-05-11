@@ -6,8 +6,8 @@ if [ $MINOR = "6" ]
   User=`logname`
   Manifest="/Users/$User/Library/Application Support/AppStore/manifest.plist"
   Cache="/Users/$User/Library/Application Support/AppStore"
-  mkdir /tmp/appstorerepkg
-  open /tmp/appstorerepkg
+  mkdir "/Users/$User/appstorerepkg"
+  #open /Users/$User/appstorerepkg
   itemNumber=0
 
     while [ $itemNumber -lt 100 ]; do
@@ -24,13 +24,13 @@ if [ $MINOR = "6" ]
       ItemID=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:item-id" "$Manifest"`
          if [ "$SubTitle" = "Apple" ]
           then
-      echo $BundleID > /tmp/appstorerepkg/$BundleID.txt
-      echo $Title >> /tmp/appstorerepkg/$BundleID.txt
-      echo $SubTitle >> /tmp/appstorerepkg/$BundleID.txt
-      echo $PKG >> /tmp/appstorerepkg/$BundleID.txt
-      echo $Size >> /tmp/appstorerepkg/$BundleID.txt
-      echo $ItemID >> /tmp/appstorerepkg/$BundleID.txt
-      ln "$Cache/$ItemID/$PKG" /tmp/appstorerepkg/$BundleID.pkg
+      echo $BundleID > /Users/$User/appstorerepkg/$BundleID.txt
+      echo $Title >> /Users/$User/appstorerepkg/$BundleID.txt
+      echo $SubTitle >> /Users/$User/appstorerepkg/$BundleID.txt
+      echo $PKG >> /Users/$User/appstorerepkg/$BundleID.txt
+      echo $Size >> /Users/$User/appstorerepkg/$BundleID.txt
+      echo $ItemID >> /Users/$User/appstorerepkg/$BundleID.txt
+      ln "$Cache/$ItemID/$PKG" /Users/$User/appstorerepkg/$BundleID.pkg
         else
           echo "$Title is not an Apple pkg so will not redistribute"
         fi
@@ -43,8 +43,8 @@ else
   #10.7/8/9/10
   Manifest=`find /var/folders -name manifest.plist 2>/dev/null | grep "/C/com.apple.appstore"`
   Cache=`echo "${Manifest%/*}"/`
-  mkdir /tmp/appstorerepkg
-  open /tmp/appstorerepkg
+  mkdir "/Users/$User/appstorerepkg"
+  #open /Users/$User/appstorerepkg
 
   itemNumber=0
 
@@ -63,14 +63,14 @@ else
       BundleVer=`/usr/libexec/PlistBuddy -c "print :representations:$itemNumber:bundle-version" $Manifest`
         if [ "$SubTitle" = "Apple" ]
           then
-      echo $BundleID > /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-      echo $BundleVer >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-      echo $Title >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-      echo $SubTitle >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-      echo $PKG >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-      echo $Size >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-      echo $ItemID >> /tmp/appstorerepkg/$BundleID.$BundleVer.txt
-      ln $Cache/$ItemID/$PKG /tmp/appstorerepkg/$BundleID.$BundleVer.pkg
+      echo $BundleID > /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $BundleVer >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $Title >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $SubTitle >> /Users/$User/appstorerepkg/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $PKG >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $Size >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $ItemID >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
+      ln $Cache/$ItemID/$PKG /Users/$User/appstorerepkg/$BundleID.$BundleVer.pkg
         else
           echo "$Title is not an Apple pkg so will not redistribute"
         fi
