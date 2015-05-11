@@ -3,7 +3,6 @@ MINOR=`sw_vers -productVersion | cut -d "." -f 2`
 User=`logname`
 
 #Install LaunchD 'watchfile' to watch Manifest.plist for changes.
-touch ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 
 if [ $MINOR = "6" ]
   then
@@ -16,7 +15,7 @@ else
 fi
 
 
-/usr/libexec/PlistBuddy -c "Add :Label string watchManifest" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :Label string com.watch.manifest.appstore.apple" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :ProgramArguments array" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 #test #/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string 'say lol'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string '~/.repkg.sh'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
