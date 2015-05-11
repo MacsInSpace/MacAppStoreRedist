@@ -15,11 +15,12 @@ else
 fi
 
 
-/usr/libexec/PlistBuddy -c "Add :Label string com.watch.manifest.appstore.apple" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-/usr/libexec/PlistBuddy -c "Add :ProgramArguments array" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-#test #/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string 'say lol'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string '~/.repkg.sh'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-/usr/libexec/PlistBuddy -c "Add :WatchPaths array '$Manifest'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-/usr/libexec/PlistBuddy -c "Add :WatchPaths:Item\ 0 string '$Manifest'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-cp ./repkg.sh ~/.repkg.sh
-launchctl load -w ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :Label string com.watch.manifest.appstore.apple" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :ProgramArguments array" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+#test #/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string 'say lol'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string '~/.repkg.sh'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :WatchPaths array '$Manifest'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :WatchPaths:Item\ 0 string '$Manifest'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+cd "$(dirname "$0")"
+cp ./repkg.sh /Users/$User/.repkg.sh
+launchctl load -w /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
