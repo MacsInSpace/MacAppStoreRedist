@@ -18,8 +18,8 @@ fi
 
 /usr/libexec/PlistBuddy -c "Add :Label string watchManifest" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :ProgramArguments array" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string 'say lol'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-#/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string '~/.repkg.sh'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+#test #/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string 'say lol'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string '~/.repkg.sh'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :WatchPaths array '$Manifest'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :WatchPaths:Item\ 0 string '$Manifest'" ~/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 cp ./repkg.sh ~/.repkg.sh
