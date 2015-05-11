@@ -41,6 +41,7 @@ if [ $MINOR = "6" ]
 else
 
   #10.7/8/9/10
+  User=`logname`
   Manifest=`find /var/folders -name manifest.plist 2>/dev/null | grep "/C/com.apple.appstore"`
   Cache=`echo "${Manifest%/*}"/`
   mkdir "/Users/$User/appstorerepkg"
