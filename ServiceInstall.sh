@@ -18,7 +18,7 @@ fi
 /usr/libexec/PlistBuddy -c "Add :Label string com.watch.manifest.appstore.apple" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :ProgramArguments array" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 #test #/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string 'say lol'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
-/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string '~/.repkg.sh'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
+/usr/libexec/PlistBuddy -c "Add :ProgramArguments:Item\ 0 string '/Users/$User/.repkg.sh'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :WatchPaths array '$Manifest'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 /usr/libexec/PlistBuddy -c "Add :WatchPaths:Item\ 0 string '$Manifest'" /Users/$User/Library/LaunchAgents/com.watch.manifest.appstore.apple.plist
 cd "$(dirname "$0")"
