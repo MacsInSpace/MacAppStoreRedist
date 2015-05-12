@@ -3,7 +3,8 @@ This is a LaunchD process to watch the Mac App Store Manifest.plist and hard lin
 
 LaunchD runs a shell script which searches for the Mac App Store folder and creates hard links to any pkg and also creates a matching text file with details of the pkg.
 
-
+To install, unzip and run the ServiceInstall.sh.
+*note that it must have the repkg.sh in the same dir.
 
 
 I'd like to eventually have it wait until the size of the pkg is correct (downloaded) and then work on the pkg and flatten it/repackage it if needed.
