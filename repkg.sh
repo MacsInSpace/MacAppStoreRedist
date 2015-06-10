@@ -1,4 +1,5 @@
 #!/bin/bash
+#say lol
 MINOR=`sw_vers -productVersion | cut -d "." -f 2`
 if [ $MINOR = "6" ]
   then
