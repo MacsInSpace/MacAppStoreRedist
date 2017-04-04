@@ -1,7 +1,7 @@
 #!/bin/bash
 #say lol
-MINOR=`sw_vers -productVersion | cut -d "." -f 2`
-if [ $MINOR = "6" ]
+OS_BUILD=`sw_vers -buildVersion | /usr/bin/colrm 3`
+if [ $OS_BUILD = "9" ]
   then
   #10.6
   User=`logname`
@@ -41,7 +41,7 @@ if [ $MINOR = "6" ]
 
 else
 
-  #10.7/8/9/10
+  #10.7/8/9/10/11/12
   User=`logname`
   Manifest=`find /var/folders -name manifest.plist 2>/dev/null | grep "/C/com.apple.appstore"`
   Cache=`echo "${Manifest%/*}"/`
@@ -68,7 +68,7 @@ else
       echo $BundleID > /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
       echo $BundleVer >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
       echo $Title >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
-      echo $SubTitle >> /Users/$User/appstorerepkg/appstorerepkg/$BundleID.$BundleVer.txt
+      echo $SubTitle >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
       echo $PKG >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
       echo $Size >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
       echo $ItemID >> /Users/$User/appstorerepkg/$BundleID.$BundleVer.txt
