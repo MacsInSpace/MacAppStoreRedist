@@ -1,16 +1,16 @@
 #!/bin/bash
-MINOR=`sw_vers -productVersion | cut -d "." -f 2`
+OS_BUILD=`sw_vers -buildVersion | /usr/bin/colrm 3`
 User=`logname`
 
 #Install LaunchD 'watchfile' to watch Manifest.plist for changes.
 
-if [ $MINOR = "6" ]
+if [ $OS_BUILD = "9" ]
   then
   #10.6
   Manifest="/Users/$User/Library/Application Support/AppStore/manifest.plist"
 else
 
-  #10.7/8/9/10
+  #10.7/8/9/10/11/12
   Manifest=`find /var/folders -name manifest.plist 2>/dev/null | grep "/C/com.apple.appstore"`
 fi
 
